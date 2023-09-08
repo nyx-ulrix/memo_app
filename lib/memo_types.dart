@@ -1,20 +1,58 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
-class BaseTemplate extends StatefulWidget {
-  const BaseTemplate({super.key});
+class BaseTemplate extends StatelessWidget {
+  const BaseTemplate({super.key, required this.memoColour});
 
-  @override
-  State<BaseTemplate> createState() => _BaseTemplateState();
-}
+  final memoColour;
 
-class _BaseTemplateState extends State<BaseTemplate> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: const SizedBox(
-        width: 1000,
-        height: 500,
-        child: Text('test data'),
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Slidable(
+        startActionPane: ActionPane(
+          motion: StretchMotion(),
+          children: [
+            SlidableAction(
+              onPressed: ((context) {
+                //function here
+              }),
+              backgroundColor: Colors.black,
+              icon: Icons.done,
+            ),
+            SlidableAction(
+              onPressed: ((context) {
+                //function here
+              }),
+              backgroundColor: Colors.white60,
+              icon: Icons.edit,
+            )
+          ],
+        ),
+
+        endActionPane: ActionPane(
+          motion: ScrollMotion(),
+          children: [
+            SlidableAction(
+              onPressed: ((context) {
+                //function here
+              }),
+              backgroundColor: Colors.redAccent,
+              icon: Icons.delete,
+            ),
+          ],
+        ),
+
+        //endActionPane:
+
+        child: Container(
+          height: 100,
+          color: memoColour,
+          child: const Center(
+            child: Text('Lorém Ipsúm'),
+          ),
+        ),
       ),
     );
   }
