@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memo_app/memo_types.dart';
+import 'package:memo_app/Widgets/memo_types.dart';
 
 class MemoListView extends StatelessWidget {
   const MemoListView({super.key});
